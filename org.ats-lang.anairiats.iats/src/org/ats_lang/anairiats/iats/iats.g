@@ -8,7 +8,9 @@ grammar iats;
   package org.ats_lang.anairiats.iats;
 }
 
-rule:;
+rule:
+  STRING ID EOF
+  ;
 
 ID  : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;
