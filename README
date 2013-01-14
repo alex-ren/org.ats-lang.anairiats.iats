@@ -1,5 +1,7 @@
 org.ats-lang.anairiats.iats/
   The folder contains the Java project for developing the intermediate language 
-for model checking ATS program.
+for model checking ATS program. Please refer to the doc 
+https://docs.google.com/document/d/1GDvHiNuYb3n4I0Ar0KfVEwsWaqKykOBDuQcRouVLRgw/edit
+for details about how to check out and build the project.
 
 
