@@ -12,6 +12,55 @@ rule:
   STRING ID EOF
   ;
 
+Println   : 'println';  
+Print     : 'print';  
+Assert    : 'assert';  
+Size      : 'size';  
+Def       : 'def';  
+If        : 'if';
+THEN      : 'then';    
+Else      : 'else';  
+Return    : 'return';  
+For       : 'for';  
+While     : 'while';  
+To        : 'to';  
+Do        : 'do';  
+End       : 'end';  
+In        : 'in';  
+Null      : 'null';  
+  
+Or        : '||';  
+And       : '&&';  
+Equals    : '==';  
+NEquals   : '!=';  
+GTEquals  : '>=';  
+LTEquals  : '<=';  
+Pow       : '^';  
+Excl      : '!';  
+GT        : '>';  
+LT        : '<';  
+Add       : '+';  
+Subtract  : '-';  
+Multiply  : '*';  
+Divide    : '/';  
+Modulus   : '%';  
+LBrace    : '{';  
+RBrace    : '}';  
+LBracket  : '[';  
+RBracket  : ']';  
+LParen    : '(';  
+RParen    : ')';  
+SColon    : ';';  
+Assign    : '=';  
+Comma     : ',';  
+QMark     : '?';  
+Colon     : ':';  
+  
+Bool  
+  :  'true'   
+  |  'false'  
+  ;  
+    
 ID  : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;
 
@@ -23,15 +72,16 @@ COMMENT
     |   '/*' ( options {greedy=false;} : . )* '*/' {$channel=HIDDEN;}
     ;
 
-WS  :   ( ' '
-        | '\t'
-        | '\r'
-        | '\n'
-        ) {$channel=HIDDEN;}
-    ;
+WS  : ( ' '
+      | '\t'
+      | '\r'
+      | '\n'
+      ) {$channel=HIDDEN;}
+      ;
 
 STRING
-    :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
+    // :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
+    : '"' 'a'..'z'+ '"' { System.out.println(getText()); }
     ;
 
 CHAR:  '\'' ( ESC_SEQ | ~('\''|'\\') ) '\''
